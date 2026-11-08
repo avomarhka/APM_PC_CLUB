@@ -418,9 +418,10 @@ public class MainController {
             });
             ClientsAgeColumn.setCellValueFactory(cellData ->{
                 LocalDate birthday = cellData.getValue().getBirthday();
-                LocalDate today = LocalDate.now();
-                int age = Period.between(birthday, today).getYears();
-
+                if (birthday == null) {
+                    return new SimpleStringProperty("");
+                }
+                int age = Period.between(birthday, LocalDate.now()).getYears();
                 return new SimpleStringProperty(String.valueOf(age));
             });
             tblClients.setItems(clients);

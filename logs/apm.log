@@ -20,3 +20,1287 @@
 2026-11-09 00:54:07 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
 2026-11-09 00:54:07 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
 2026-11-09 00:54:07 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:07:59 INFO  [JavaFX Application Thread] org.example.Main - Приложение запущено
+2026-11-09 01:08:02 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:08:02 ERROR [JavaFX Application Thread] utils.DBHelper - Соединение с базой данных недоступно
+java.sql.SQLException: Соединение не установлено. Вызовите initConnection().
+	at APM/utils.DBHelper.getConnection(DBHelper.java:50)
+	at APM/org.example.Main.start(Main.java:42)
+	at javafx.graphics@21/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839)
+	at javafx.graphics@21/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483)
+	at javafx.graphics@21/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+	at javafx.graphics@21/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-11-09 01:08:02 WARN  [JavaFX Application Thread] org.example.Main - Авторизация не пройдена. Выход.
+2026-11-09 01:08:02 INFO  [JavaFX Application Thread] org.example.Main - Приложение остановлено
+2026-11-09 01:08:11 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:08:11 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:08:12 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:08:12 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:08:13 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:08:13 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:08:14 INFO  [JavaFX Application Thread] Controllers.MainController - onPcUpdate
+2026-11-09 01:08:17 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:08:17 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:08:19 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:08:21 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:08:22 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:08:22 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:08:24 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:08:28 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:08:28 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:08:28 ERROR [JavaFX Application Thread] Controllers.ClientsViewController - Ошибка операции
+org.postgresql.util.PSQLException: ОШИБКА: значение NULL в столбце "birthday" отношения "clients" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (8, Testov1794175703095, Test, , 4175703095, null).
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at APM/Dao.ClientsDao.save(ClientsDao.java:109)
+	at APM/Dao.ClientsDao.save(ClientsDao.java:20)
+	at APM/Controllers.ClientsViewController.onSave(ClientsViewController.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM/Controllers.MainController.showDialog(MainController.java:1134)
+	at APM/Controllers.MainController.onClientsAdd(MainController.java:1146)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-11-09 01:13:15 DEBUG [main] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:13:15 INFO  [main] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:16 INFO  [main] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:16 DEBUG [main] Dao.RoomTypesDao - SQL save: INSERT INTO roomTypes(name, pc_count) VALUES (?, ?)
+2026-11-09 01:13:16 DEBUG [main] Dao.RoomsDao - SQL save: INSERT INTO rooms(type_id,number) VALUES (?, ?)
+2026-11-09 01:13:16 DEBUG [main] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:13:16 DEBUG [main] Dao.TariffDao - SQL save: INSERT INTO prices(tariff, price,type_id) VALUES (?,?::numeric, ?)
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:16 DEBUG [main] Dao.OrdersDao - SQL save: INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) VALUES (?, ?, ?, ?, ?, ?)
+2026-11-09 01:13:16 DEBUG [main] Dao.OrdersDao - SQL update
+2026-11-09 01:13:16 DEBUG [main] Dao.PCDao - SQL update
+2026-11-09 01:13:16 DEBUG [main] Dao.RoomTypesDao - SQL update
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL delete id=9
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:16 DEBUG [main] Dao.RoomTypesDao - SQL delete id=7
+2026-11-09 01:13:16 DEBUG [main] Dao.RoomsDao - SQL delete id=9
+2026-11-09 01:13:16 DEBUG [main] Dao.PCDao - SQL delete id=25
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL update
+2026-11-09 01:13:16 DEBUG [main] Dao.ClientsDao - SQL delete id=11
+2026-11-09 01:13:17 WARN  [JavaFX Application Thread] Controllers.LoginDialog - Попытка входа с пустым логином или паролем
+2026-11-09 01:13:17 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Язык интерфейса изменен на en_EN
+2026-11-09 01:13:19 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:19 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:19 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Пользователь appuser успешно вошел
+2026-11-09 01:13:22 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:22 ERROR [JavaFX Application Thread] utils.DBHelper - Ошибка подключения к базе данных
+org.postgresql.util.PSQLException: �����: ������������ "appuser" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at APM@1.0-SNAPSHOT/utils.DBHelper.initConnection(DBHelper.java:38)
+	at APM@1.0-SNAPSHOT/Controllers.LoginDialog.handleLogin(LoginDialog.java:83)
+	at APM@1.0-SNAPSHOT/Controllers.LoginDialog.lambda$initialize$1(LoginDialog.java:40)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-09 01:13:22 WARN  [JavaFX Application Thread] Controllers.LoginDialog - Неверный логин или пароль для пользователя appuser
+2026-11-09 01:13:23 INFO  [main] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:23 INFO  [main] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:23 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:23 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:24 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на en_EN
+2026-11-09 01:13:25 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на ru_RU
+2026-11-09 01:13:25 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:25 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:25 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:26 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:26 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:27 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:13:30 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:13:31 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:31 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:32 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:13:35 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:13:36 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:36 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:36 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:36 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:36 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:37 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:37 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:38 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:13:43 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:13:43 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:43 ERROR [JavaFX Application Thread] Controllers.ClientsViewController - Ошибка операции
+org.postgresql.util.PSQLException: ОШИБКА: значение NULL в столбце "birthday" отношения "clients" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (14, Testov1794176017592, Test, , 4176017592, null).
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at APM@1.0-SNAPSHOT/Dao.ClientsDao.save(ClientsDao.java:109)
+	at APM@1.0-SNAPSHOT/Dao.ClientsDao.save(ClientsDao.java:20)
+	at APM@1.0-SNAPSHOT/Controllers.ClientsViewController.onSave(ClientsViewController.java:81)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.showDialog(MainController.java:1135)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.onClientsAdd(MainController.java:1147)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-09 01:13:43 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:43 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:43 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:43 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:43 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:44 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:13:44 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:44 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:45 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderNew
+2026-11-09 01:13:46 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onFioChoice
+2026-11-09 01:13:47 INFO  [JavaFX Application Thread] Controllers.OrderClientsController - onSelect
+2026-11-09 01:13:48 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:48 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:49 INFO  [JavaFX Application Thread] Controllers.MainController - onPCAvailable
+2026-11-09 01:13:50 INFO  [JavaFX Application Thread] Controllers.MainController - onPClBooked
+2026-11-09 01:13:51 INFO  [JavaFX Application Thread] Controllers.MainController - onPcUpdate
+2026-11-09 01:13:51 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:51 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:53 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:13:54 INFO  [JavaFX Application Thread] Controllers.RoomViewController - onSave
+2026-11-09 01:13:54 DEBUG [JavaFX Application Thread] Dao.RoomsDao - SQL save: INSERT INTO rooms(type_id,number) VALUES (?, ?)
+2026-11-09 01:13:55 DEBUG [main] Dao.RoomsDao - SQL delete id=10
+2026-11-09 01:13:55 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:55 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:13:57 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:13:57 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:13:57 DEBUG [main] Dao.PCDao - SQL delete id=26
+2026-11-09 01:13:57 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:13:57 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:01 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderSearch
+2026-11-09 01:14:02 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderCancelSearch
+2026-11-09 01:14:03 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:03 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:04 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderNew
+2026-11-09 01:14:05 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onSave
+2026-11-09 01:14:06 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:06 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:07 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:14:08 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:08 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:10 INFO  [JavaFX Application Thread] Controllers.MainController - onPcProlong
+2026-11-09 01:14:11 INFO  [JavaFX Application Thread] Controllers.MainController - onPcShutDown
+2026-11-09 01:14:12 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:12 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:13 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTariff
+2026-11-09 01:14:17 INFO  [JavaFX Application Thread] Controllers.TariffViewController - onAdd
+2026-11-09 01:14:17 DEBUG [JavaFX Application Thread] Dao.TariffDao - SQL save: INSERT INTO prices(tariff, price,type_id) VALUES (?,?::numeric, ?)
+2026-11-09 01:14:17 ERROR [JavaFX Application Thread] Controllers.TariffViewController - Ошибка операции
+java.lang.NullPointerException: Cannot invoke "javafx.stage.Stage.close()" because "this.dialogStage" is null
+	at APM@1.0-SNAPSHOT/Controllers.TariffViewController.onAdd(TariffViewController.java:146)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.onGuideShowTariff(MainController.java:1090)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-09 01:14:17 DEBUG [main] Dao.TariffDao - SQL delete id=19
+2026-11-09 01:14:18 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:18 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:20 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:20 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:22 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTariff
+2026-11-09 01:14:24 INFO  [JavaFX Application Thread] Controllers.TariffViewController - onAdd
+2026-11-09 01:14:24 ERROR [JavaFX Application Thread] Controllers.TariffViewController - Ошибка операции
+java.lang.NumberFormatException: For input string: "abc"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:792)
+	at java.base/java.lang.Double.valueOf(Double.java:755)
+	at APM@1.0-SNAPSHOT/Controllers.TariffViewController.onAdd(TariffViewController.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.onGuideShowTariff(MainController.java:1090)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-09 01:14:25 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:25 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:26 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTypes
+2026-11-09 01:14:27 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:14:31 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:14:32 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:32 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:33 INFO  [JavaFX Application Thread] Controllers.MainController - onPcNewOrder
+2026-11-09 01:14:34 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onSave
+2026-11-09 01:14:35 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:35 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:38 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:14:38 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:14:39 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTypes
+2026-11-09 01:14:42 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:14:42 DEBUG [JavaFX Application Thread] Dao.RoomTypesDao - SQL save: INSERT INTO roomTypes(name, pc_count) VALUES (?, ?)
+2026-11-09 01:14:43 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onDelete
+2026-11-09 01:14:43 DEBUG [JavaFX Application Thread] Dao.RoomTypesDao - SQL delete id=8
+2026-11-09 01:15:27 DEBUG [main] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:15:27 INFO  [main] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:27 INFO  [main] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:27 DEBUG [main] Dao.RoomTypesDao - SQL save: INSERT INTO roomTypes(name, pc_count) VALUES (?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.RoomsDao - SQL save: INSERT INTO rooms(type_id,number) VALUES (?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.TariffDao - SQL save: INSERT INTO prices(tariff, price,type_id) VALUES (?,?::numeric, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:27 DEBUG [main] Dao.OrdersDao - SQL save: INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) VALUES (?, ?, ?, ?, ?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.OrdersDao - SQL update
+2026-11-09 01:15:27 DEBUG [main] Dao.PCDao - SQL update
+2026-11-09 01:15:27 DEBUG [main] Dao.RoomTypesDao - SQL update
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL delete id=17
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:27 DEBUG [main] Dao.OrdersDao - SQL save: INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) VALUES (?, ?, ?, ?, ?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.PCDao - SQL delete id=27
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL delete id=18
+2026-11-09 01:15:27 DEBUG [main] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:15:27 DEBUG [main] Dao.RoomsDao - SQL delete id=11
+2026-11-09 01:15:27 DEBUG [main] Dao.RoomTypesDao - SQL delete id=9
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL update
+2026-11-09 01:15:27 DEBUG [main] Dao.ClientsDao - SQL delete id=19
+2026-11-09 01:15:27 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:27 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:28 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на en_EN
+2026-11-09 01:15:29 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на ru_RU
+2026-11-09 01:15:29 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:29 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:29 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:29 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:31 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:15:33 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:15:33 DEBUG [main] Dao.ClientsDao - SQL delete id=20
+2026-11-09 01:15:33 DEBUG [main] Dao.ClientsDao - SQL delete id=21
+2026-11-09 01:15:34 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:34 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:35 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:15:38 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:15:39 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:39 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:40 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:15:43 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:15:43 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:44 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:44 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:45 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:15:47 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:15:48 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsDelete
+2026-11-09 01:15:48 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL delete id=22
+2026-11-09 01:15:49 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:49 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:49 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:49 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:50 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:15:55 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:15:55 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:55 DEBUG [main] Dao.ClientsDao - SQL delete id=23
+2026-11-09 01:15:55 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:15:55 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:15:55 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:15:57 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:15:59 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:16:00 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsEdit
+2026-11-09 01:16:01 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:16:01 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL update
+2026-11-09 01:16:02 DEBUG [main] Dao.ClientsDao - SQL delete id=24
+2026-11-09 01:16:02 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:16:02 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:16:02 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:16:02 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:16:03 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:16:06 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:16:06 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:16:07 DEBUG [main] Dao.ClientsDao - SQL delete id=25
+2026-11-09 01:16:07 DEBUG [main] Dao.ClientsDao - SQL delete id=26
+2026-11-09 01:16:59 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:16:59 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:16:59 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:01 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:17:05 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:17:32 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:17:32 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:32 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:33 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на en_EN
+2026-11-09 01:17:33 INFO  [JavaFX Application Thread] Controllers.MainController - Язык интерфейса изменен на ru_RU
+2026-11-09 01:17:33 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:33 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:34 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:17:34 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:17:35 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:17:37 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:17:38 DEBUG [main] Dao.ClientsDao - SQL delete id=27
+2026-11-09 01:17:38 DEBUG [main] Dao.ClientsDao - SQL delete id=28
+2026-11-09 01:17:38 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:38 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:39 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:17:42 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:17:43 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:43 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:44 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:17:47 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:17:48 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:48 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:48 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:17:49 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:17:52 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:17:52 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsDelete
+2026-11-09 01:17:52 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL delete id=29
+2026-11-09 01:17:53 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:53 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:53 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:17:53 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:17:55 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:17:59 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:17:59 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:00 DEBUG [main] Dao.ClientsDao - SQL delete id=30
+2026-11-09 01:18:00 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:00 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:00 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:01 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:18:04 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:18:04 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsEdit
+2026-11-09 01:18:06 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:18:06 DEBUG [JavaFX Application Thread] Dao.ClientsDao - SQL update
+2026-11-09 01:18:06 DEBUG [main] Dao.ClientsDao - SQL delete id=31
+2026-11-09 01:18:07 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:07 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:08 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsAdd
+2026-11-09 01:18:11 INFO  [JavaFX Application Thread] Controllers.ClientsViewController - onSave
+2026-11-09 01:18:12 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:12 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:12 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:12 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:14 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:18:16 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsSearch
+2026-11-09 01:18:17 INFO  [JavaFX Application Thread] Controllers.MainController - onClientsClear
+2026-11-09 01:18:17 DEBUG [main] Dao.ClientsDao - SQL delete id=32
+2026-11-09 01:18:17 DEBUG [main] Dao.ClientsDao - SQL delete id=33
+2026-11-09 01:18:29 DEBUG [main] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:18:29 INFO  [main] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:29 INFO  [main] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:29 DEBUG [main] Dao.RoomTypesDao - SQL save: INSERT INTO roomTypes(name, pc_count) VALUES (?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.RoomsDao - SQL save: INSERT INTO rooms(type_id,number) VALUES (?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.TariffDao - SQL save: INSERT INTO prices(tariff, price,type_id) VALUES (?,?::numeric, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:29 DEBUG [main] Dao.OrdersDao - SQL save: INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) VALUES (?, ?, ?, ?, ?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.OrdersDao - SQL update
+2026-11-09 01:18:29 DEBUG [main] Dao.PCDao - SQL update
+2026-11-09 01:18:29 DEBUG [main] Dao.RoomTypesDao - SQL update
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL delete id=34
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:29 DEBUG [main] Dao.OrdersDao - SQL save: INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) VALUES (?, ?, ?, ?, ?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.PCDao - SQL delete id=29
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL delete id=35
+2026-11-09 01:18:29 DEBUG [main] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:18:29 DEBUG [main] Dao.RoomsDao - SQL delete id=12
+2026-11-09 01:18:29 DEBUG [main] Dao.RoomTypesDao - SQL delete id=10
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL save: INSERT INTO clients(surname, name, patronymic, number_phone, birthday) VALUES (?,?,?,?,?)
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL update
+2026-11-09 01:18:29 DEBUG [main] Dao.ClientsDao - SQL delete id=36
+2026-11-09 01:18:38 WARN  [JavaFX Application Thread] Controllers.LoginDialog - Попытка входа с пустым логином или паролем
+2026-11-09 01:18:38 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Язык интерфейса изменен на en_EN
+2026-11-09 01:18:41 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:18:41 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:41 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:41 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Пользователь appuser успешно вошел
+2026-11-09 01:18:44 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:44 ERROR [JavaFX Application Thread] utils.DBHelper - Ошибка подключения к базе данных
+org.postgresql.util.PSQLException: �����: ������������ "appuser" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at APM@1.0-SNAPSHOT/utils.DBHelper.initConnection(DBHelper.java:38)
+	at APM@1.0-SNAPSHOT/Controllers.LoginDialog.handleLogin(LoginDialog.java:83)
+	at APM@1.0-SNAPSHOT/Controllers.LoginDialog.lambda$initialize$1(LoginDialog.java:40)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-11-09 01:18:44 WARN  [JavaFX Application Thread] Controllers.LoginDialog - Неверный логин или пароль для пользователя appuser
+2026-11-09 01:18:44 INFO  [main] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:44 INFO  [main] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:53 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:18:53 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:53 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:55 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderNew
+2026-11-09 01:18:56 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onFioChoice
+2026-11-09 01:18:57 INFO  [JavaFX Application Thread] Controllers.OrderClientsController - onSelect
+2026-11-09 01:18:58 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:18:58 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:18:59 INFO  [JavaFX Application Thread] Controllers.MainController - onPCAvailable
+2026-11-09 01:19:00 INFO  [JavaFX Application Thread] Controllers.MainController - onPClBooked
+2026-11-09 01:19:01 INFO  [JavaFX Application Thread] Controllers.MainController - onPcUpdate
+2026-11-09 01:19:01 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:01 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:03 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:19:04 INFO  [JavaFX Application Thread] Controllers.RoomViewController - onSave
+2026-11-09 01:19:04 DEBUG [JavaFX Application Thread] Dao.RoomsDao - SQL save: INSERT INTO rooms(type_id,number) VALUES (?, ?)
+2026-11-09 01:19:05 DEBUG [main] Dao.RoomsDao - SQL delete id=13
+2026-11-09 01:19:05 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:05 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:07 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:19:07 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 01:19:07 DEBUG [main] Dao.PCDao - SQL delete id=31
+2026-11-09 01:19:07 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:07 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:12 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderSearch
+2026-11-09 01:19:12 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderCancelSearch
+2026-11-09 01:19:13 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:13 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:14 INFO  [JavaFX Application Thread] Controllers.MainController - onOrderNew
+2026-11-09 01:19:15 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onSave
+2026-11-09 01:19:16 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:16 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:17 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 01:19:18 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:18 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:20 INFO  [JavaFX Application Thread] Controllers.MainController - onPcProlong
+2026-11-09 01:19:21 INFO  [JavaFX Application Thread] Controllers.MainController - onPcShutDown
+2026-11-09 01:19:22 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:22 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:23 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTariff
+2026-11-09 01:19:27 INFO  [JavaFX Application Thread] Controllers.TariffViewController - onAdd
+2026-11-09 01:19:27 DEBUG [JavaFX Application Thread] Dao.TariffDao - SQL save: INSERT INTO prices(tariff, price,type_id) VALUES (?,?::numeric, ?)
+2026-11-09 01:19:27 ERROR [JavaFX Application Thread] Controllers.TariffViewController - Ошибка операции
+java.lang.NullPointerException: Cannot invoke "javafx.stage.Stage.close()" because "this.dialogStage" is null
+	at APM@1.0-SNAPSHOT/Controllers.TariffViewController.onAdd(TariffViewController.java:146)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.onGuideShowTariff(MainController.java:1090)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-11-09 01:19:28 DEBUG [main] Dao.TariffDao - SQL delete id=22
+2026-11-09 01:19:28 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:28 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:30 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:30 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:31 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTariff
+2026-11-09 01:19:34 INFO  [JavaFX Application Thread] Controllers.TariffViewController - onAdd
+2026-11-09 01:19:34 ERROR [JavaFX Application Thread] Controllers.TariffViewController - Ошибка операции
+java.lang.NumberFormatException: For input string: "abc"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:651)
+	at java.base/java.lang.Double.valueOf(Double.java:614)
+	at APM@1.0-SNAPSHOT/Controllers.TariffViewController.onAdd(TariffViewController.java:140)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at APM@1.0-SNAPSHOT/Controllers.MainController.onGuideShowTariff(MainController.java:1090)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-11-09 01:19:35 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:35 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:36 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTypes
+2026-11-09 01:19:37 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:19:41 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:19:41 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:41 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:43 INFO  [JavaFX Application Thread] Controllers.MainController - onPcNewOrder
+2026-11-09 01:19:43 INFO  [JavaFX Application Thread] Controllers.OrderViewController - onSave
+2026-11-09 01:19:44 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:44 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:48 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:19:48 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:19:49 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideShowTypes
+2026-11-09 01:19:52 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onAdd
+2026-11-09 01:19:52 DEBUG [JavaFX Application Thread] Dao.RoomTypesDao - SQL save: INSERT INTO roomTypes(name, pc_count) VALUES (?, ?)
+2026-11-09 01:19:53 INFO  [JavaFX Application Thread] Controllers.TypesViewController - onDelete
+2026-11-09 01:19:53 DEBUG [JavaFX Application Thread] Dao.RoomTypesDao - SQL delete id=11
+2026-11-09 01:20:11 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:20:11 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:20:11 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 01:20:12 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 01:20:12 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 01:20:12 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено

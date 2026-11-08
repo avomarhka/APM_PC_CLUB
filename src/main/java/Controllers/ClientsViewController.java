@@ -71,6 +71,10 @@ public class ClientsViewController {
                 new Alert(Alert.AlertType.WARNING, Texts.get("alert.phoneDigits")).showAndWait();
                 return;
             }
+            if (dtBirthday.getValue() == null) {
+                new Alert(Alert.AlertType.WARNING, Texts.get("alert.birthday")).showAndWait();
+                return;
+            }
             clients.setSurname(surname);
             clients.setName(name);
             clients.setPatronymic(tfPatronymic.getText());
