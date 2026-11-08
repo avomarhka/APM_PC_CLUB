@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginDialog">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="АРМ Администратора компьютерного клуба" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblAutho" text="%text.authorization">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="150.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <VBox>
+               <children>
+                  <HBox>
+                     <VBox.margin>
+                        <Insets left="50.0" top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="0.0">
+                           <children>
+                              <Label fx:id="lblLogin" text="%text.login">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="lblPassword" text="%text.password">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TextField fx:id="loginTF" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="%login.enter">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <PasswordField fx:id="passswordTF" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="%password.enter" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="50.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox>
+               <VBox.margin>
+                  <Insets left="50.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="buttonEnter" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%button.enter" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="120.0" right="120.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <HBox>
+               <children>
+                  <Label fx:id="lblLanguage" text="%text.languages">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="1.0" top="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="cbLang" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="210.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Label text="\@2026 Храмова А.А.">
+               <VBox.margin>
+                  <Insets left="130.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
