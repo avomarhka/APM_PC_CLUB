@@ -10,9 +10,13 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import utils.DBHelper;
+import utils.Texts;
 import org.example.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginDialog {
+    private static final Logger logger = LoggerFactory.getLogger(LoginDialog.class);
     @FXML
     public TextField loginTF;
     public TextField passswordTF;
@@ -47,7 +51,9 @@ public class LoginDialog {
             locale = new Locale("ru", "RU");
         }
 
-        bundle = ResourceBundle.getBundle("text", locale);
+        Texts.apply(locale);
+        bundle = Texts.bundle();
+        logger.info("Язык интерфейса изменен на {}", locale);
 
         updateTexts();
     }
@@ -59,6 +65,8 @@ public class LoginDialog {
         lblPassword.setText(bundle.getString("text.password"));
 
         buttonEnter.setText(bundle.getString("button.enter"));
+        Stage stage = (Stage) buttonEnter.getScene().getWindow();
+        stage.setTitle(bundle.getString("text.authorization"));
 
         loginTF.setPromptText(bundle.getString("login.enter"));
         passswordTF.setPromptText(bundle.getString("password.enter"));
@@ -69,19 +77,19 @@ public class LoginDialog {
         String password = passswordTF.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
-            //showAlert(Alert.AlertType.WARNING, "Ошибка", "Заполните логин и пароль!");
-            System.out.println("Заполните логин и пароль!");
+            logger.warn("Попытка входа с пустым логином или паролем");
             return;
         }
         boolean success = DBHelper.initConnection(username, password);
 
 
         if (success) {
+            logger.info("Пользователь {} успешно вошел", username);
             loadUserInfo(username);
             Stage stage = (Stage) buttonEnter.getScene().getWindow();
             stage.close();
         } else {
-            //showAlert(Alert.AlertType.ERROR, "Ошибка доступа", "Неверный логин или пароль!");
+            logger.warn("Неверный логин или пароль для пользователя {}", username);
         }
     }
 

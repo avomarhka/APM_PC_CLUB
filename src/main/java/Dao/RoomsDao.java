@@ -4,6 +4,8 @@ import Models.Prices;
 import Models.RoomTypes;
 import Models.Rooms;
 import utils.DBHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +16,8 @@ import java.util.Collection;
 import java.util.List;
 
 public class RoomsDao implements Dao<Rooms, Long> {
+    private static final Logger logger = LoggerFactory.getLogger(RoomsDao.class);
+
     private final static String FIND_ALL = "SELECT * FROM rooms";
     private final static String FIND_BY_ID = "SELECT * FROM rooms WHERE room_id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM rooms WHERE room_id=?";
@@ -66,13 +70,14 @@ public class RoomsDao implements Dao<Rooms, Long> {
                 ));
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.error("Ошибка SQL", e);
         }
         return list;
     }
 
     @Override
     public Rooms save(Rooms room) throws Exception {
+        logger.debug("SQL save: {}", SAVE);
         Connection connection = DBHelper.getConnection();
         PreparedStatement statement = connection.prepareStatement(SAVE, new String[]{"room_id"});
         statement.setLong(1, room.getTypeId());
@@ -91,16 +96,27 @@ public class RoomsDao implements Dao<Rooms, Long> {
 
     @Override
     public Rooms update(Rooms entity) {
+        logger.debug("SQL update");
         return null;
     }
 
     @Override
     public void deleteById(long id) throws Exception {
+        logger.debug("SQL delete id={}", id);
         Connection connection = DBHelper.getConnection();
-        PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID);
-        statement.setLong(1, id);
-        statement.executeUpdate();
-
+        try (PreparedStatement orders = connection.prepareStatement(
+                "DELETE FROM orders WHERE pc_id IN (SELECT pc_id FROM pcs WHERE room_id = ?)")) {
+            orders.setLong(1, id);
+            orders.executeUpdate();
+        }
+        try (PreparedStatement pcs = connection.prepareStatement("DELETE FROM pcs WHERE room_id = ?")) {
+            pcs.setLong(1, id);
+            pcs.executeUpdate();
+        }
+        try (PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        }
     }
 
     @Override

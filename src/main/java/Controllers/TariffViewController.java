@@ -1,5 +1,7 @@
 package Controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import Dao.Dao;
 import Dao.TariffDao;
 import Dao.RoomTypesDao;
@@ -15,6 +17,8 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class TariffViewController {
+    private static final Logger logger = LoggerFactory.getLogger(TariffViewController.class);
+
     public TextField tfTariff;
     public Button btnAdd;
     public Button btnDelete;
@@ -98,6 +102,7 @@ public class TariffViewController {
                 btnDelete.setManaged(false);
             }
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
 
@@ -119,6 +124,7 @@ public class TariffViewController {
                 btnDelete.setManaged(false);
             }
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
@@ -127,6 +133,7 @@ public class TariffViewController {
 
 
     public void onAdd(ActionEvent actionEvent) {
+        logger.info("onAdd");
         try {
             Prices newPrices = new Prices();
             newPrices.setTariff(tfTariff.getText());
@@ -139,11 +146,13 @@ public class TariffViewController {
             dialogStage.close();
             refresh();
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
 
     public void onDelete(ActionEvent actionEvent) {
+        logger.info("onDelete");
         try{
            Prices selected = tblTariff.getSelectionModel().getSelectedItem();
 
@@ -152,6 +161,7 @@ public class TariffViewController {
 //            lblLog.setText("Строка удалена");
 //            Alerts.InfoAlert("Строка удалена");
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             throw new RuntimeException(e);
         }
     }
@@ -162,6 +172,7 @@ public class TariffViewController {
             tblTariff.getItems().clear();
             prices.addAll(dao.findAll());
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             throw new RuntimeException(e);
         }
 

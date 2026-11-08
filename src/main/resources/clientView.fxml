@@ -17,27 +17,27 @@
                <children>
                   <VBox>
                      <children>
-                        <Label text="Фамилия">
+                        <Label text="%label.surname">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label layoutX="10.0" layoutY="10.0" text="Имя">
+                        <Label layoutX="10.0" layoutY="10.0" text="%label.name">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label layoutX="10.0" layoutY="27.0" text="Отчество">
+                        <Label layoutX="10.0" layoutY="27.0" text="%label.patronymic">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
                         </Label>
-                        <Label layoutX="10.0" layoutY="44.0" text="Номер телефона">
+                        <Label layoutX="10.0" layoutY="44.0" text="%label.phoneNumber">
                            <VBox.margin>
                               <Insets top="13.0" />
                            </VBox.margin>
                         </Label>
-                        <Label layoutX="10.0" layoutY="61.0" text="Дата рождения">
+                        <Label layoutX="10.0" layoutY="61.0" text="%column.birthday">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -49,18 +49,18 @@
                   </VBox>
                   <VBox HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="tfSurname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Введите фамилию" />
-                        <TextField fx:id="tfName" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Введите имя">
+                        <TextField fx:id="tfSurname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="%prompt.surname" />
+                        <TextField fx:id="tfName" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="%prompt.name">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="tfPatronymic" layoutX="10.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Введите отчество(при наличии)">
+                        <TextField fx:id="tfPatronymic" layoutX="10.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="%prompt.patronymic">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="tfNumberPhone" layoutX="10.0" layoutY="60.0" promptText="Введите номер">
+                        <TextField fx:id="tfNumberPhone" layoutX="10.0" layoutY="60.0" promptText="%prompt.phone">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
@@ -74,7 +74,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" text="Сохранить">
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" text="%button.save">
                <VBox.margin>
                   <Insets left="130.0" top="10.0" />
                </VBox.margin>

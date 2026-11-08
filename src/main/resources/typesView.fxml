@@ -15,18 +15,18 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="tfTypes" promptText="Введите тип" />
-                  <TextField promptText="Введите количество">
+                  <TextField fx:id="tfTypes" promptText="%prompt.type" />
+                  <TextField fx:id="tfCount" promptText="%prompt.count">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAdd" text="Добавить">
+                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAdd" text="%button.add">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnDelete" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDelete" text="Удалить">
+                  <Button fx:id="btnDelete" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDelete" text="%button.delete">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -38,8 +38,8 @@
             </HBox>
             <TableView fx:id="tblTypes">
               <columns>
-                <TableColumn fx:id="TypeColumn" prefWidth="75.0" text="Тип" />
-                  <TableColumn fx:id="TypeColumn1" prefWidth="75.0" text="Количество компьютеров" />
+                <TableColumn fx:id="TypeColumn" prefWidth="75.0" text="%column.type" />
+                  <TableColumn fx:id="TypeColumn1" prefWidth="75.0" text="%column.pcCount" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

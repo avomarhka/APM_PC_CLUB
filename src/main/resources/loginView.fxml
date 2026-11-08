@@ -15,7 +15,7 @@
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="АРМ Администратора компьютерного клуба" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="%app.title" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

@@ -16,8 +16,8 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="tfTariff" promptText="Введите тариф" />
-                  <TextField fx:id="tfPrices" promptText="Введите цену">
+                        <TextField fx:id="tfTariff" promptText="%prompt.tariff" />
+                  <TextField fx:id="tfPrices" promptText="%prompt.price">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -27,12 +27,12 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </ChoiceBox>
-                        <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAdd" text="Добавить">
+                        <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAdd" text="%button.add">
                             <HBox.margin>
                                 <Insets left="5.0" />
                             </HBox.margin>
                         </Button>
-                        <Button fx:id="btnDelete" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDelete" text="Удалить">
+                        <Button fx:id="btnDelete" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDelete" text="%button.delete">
                             <HBox.margin>
                                 <Insets left="5.0" />
                             </HBox.margin>
@@ -44,8 +44,8 @@
                 </HBox>
                 <TableView fx:id="tblTariff">
                     <columns>
-                        <TableColumn fx:id="TariffColumn" prefWidth="75.0" text="Тариф" />
-                  <TableColumn fx:id="PriceColumn" prefWidth="75.0" text="Цена" />
+                        <TableColumn fx:id="TariffColumn" prefWidth="75.0" text="%column.tariff" />
+                  <TableColumn fx:id="PriceColumn" prefWidth="75.0" text="%column.price" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

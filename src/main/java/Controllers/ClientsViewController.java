@@ -1,17 +1,25 @@
 package Controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import Dao.Dao;
 import Dao.ClientsDao;
 import Models.Clients;
 import Models.Rooms;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.Alerts;
+import utils.DateFields;
+import utils.Texts;
 
 public class ClientsViewController {
+    private static final Logger logger = LoggerFactory.getLogger(ClientsViewController.class);
+
     public TextField tfSurname;
     public TextField tfName;
     public TextField tfPatronymic;
@@ -32,6 +40,11 @@ public class ClientsViewController {
         this.dialogStage = addStage;
     }
 
+    @FXML
+    void initialize() {
+        DateFields.setup(dtBirthday);
+    }
+
     public void setClients(Clients clients) {
         this.clients = clients;
         if (clients != null) {
@@ -45,11 +58,23 @@ public class ClientsViewController {
     private boolean isOkClicked = false;
 
     public void onSave(ActionEvent actionEvent) {
+        logger.info("onSave");
         try {
-            clients.setSurname(tfSurname.getText());
-            clients.setName(tfName.getText());
+            String surname = tfSurname.getText() == null ? "" : tfSurname.getText().trim();
+            String name = tfName.getText() == null ? "" : tfName.getText().trim();
+            String phone = tfNumberPhone.getText() == null ? "" : tfNumberPhone.getText().trim();
+            if (surname.isEmpty() || name.isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, Texts.get("alert.fillName")).showAndWait();
+                return;
+            }
+            if (!phone.matches("\\d+")) {
+                new Alert(Alert.AlertType.WARNING, Texts.get("alert.phoneDigits")).showAndWait();
+                return;
+            }
+            clients.setSurname(surname);
+            clients.setName(name);
             clients.setPatronymic(tfPatronymic.getText());
-            clients.setNumberPhone(tfNumberPhone.getText());
+            clients.setNumberPhone(phone);
             clients.setBirthday(dtBirthday.getValue());
 
             if (clients.getClientId() == 0) {
@@ -64,6 +89,7 @@ public class ClientsViewController {
             isOkClicked = true;
             dialogStage.close();
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             throw new RuntimeException(e);
         }
 

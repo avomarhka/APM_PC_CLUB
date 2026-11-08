@@ -2,14 +2,12 @@ package Models;
 import javafx.beans.property.*;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
 import java.time.LocalDate;
 
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 
@@ -20,6 +18,9 @@ public class Clients {
     private final StringProperty patronymic = new SimpleStringProperty("");
     private final StringProperty numberPhone = new SimpleStringProperty("");
     private final ObjectProperty<LocalDate> birthday = new SimpleObjectProperty<>(null);
+
+    public Clients() {
+    }
 
     public Clients(long clientId, String surname, String name, String patronymic, String number_phone, LocalDate birthday){
         this.clientId.set(clientId);

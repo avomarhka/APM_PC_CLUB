@@ -9,33 +9,42 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OrderClientsController">
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox>
                <children>
-                  <TextField promptText="Введите данные">
+                  <TextField fx:id="tfSearch" promptText="%prompt.searchShort">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Поиск">
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#onSearch" text="%button.search">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Очистить" />
+                  <Button fx:id="btnClear" mnemonicParsing="false" onAction="#onClear" text="%button.clear" />
+                  <Button fx:id="btnAdd" layoutX="220.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAdd" text="%button.addClient">
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnSelect" layoutX="220.0" layoutY="10.0" mnemonicParsing="false" onAction="#onSelect" text="%button.select">
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="0.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblClient" prefHeight="0.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn prefWidth="75.0" text="ФИО" />
-                <TableColumn prefWidth="75.0" text="Телефон" />
+                <TableColumn fx:id="FioColumn" prefWidth="75.0" text="%column.fio" />
+                <TableColumn fx:id="numberColumn" prefWidth="75.0" text="%column.phone" />
               </columns>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />

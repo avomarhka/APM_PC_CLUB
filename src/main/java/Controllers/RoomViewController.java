@@ -1,5 +1,7 @@
 package Controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import Dao.Dao;
 import Dao.RoomsDao;
 import Dao.RoomTypesDao;
@@ -14,6 +16,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class RoomViewController {
+    private static final Logger logger = LoggerFactory.getLogger(RoomViewController.class);
+
     public TextField tfNumber;
     public ChoiceBox <RoomTypes>chbType;
     public Button btnSave;
@@ -53,6 +57,7 @@ public class RoomViewController {
 
             });
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
 
@@ -61,6 +66,7 @@ public class RoomViewController {
     private boolean isOkClicked = false;
 
     public void onSave(ActionEvent actionEvent) {
+        logger.info("onSave");
         try {
             Rooms room = new Rooms();
             room.setNumber(Long.parseLong(tfNumber.getText()));
@@ -72,6 +78,7 @@ public class RoomViewController {
 
             
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             throw new RuntimeException(e);
         }
 

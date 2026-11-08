@@ -3,11 +3,9 @@ import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 
@@ -16,6 +14,9 @@ public class Prices {
     private final StringProperty tariff = new SimpleStringProperty("");
     private final DoubleProperty price = new SimpleDoubleProperty(0.0);
     private final LongProperty typeId = new SimpleLongProperty(0L);
+
+    public Prices() {
+    }
 
     public Prices(long priceId,String tariff, Double price, long typeId){
         this.priceId.set(priceId);

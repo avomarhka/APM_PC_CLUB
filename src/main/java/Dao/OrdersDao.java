@@ -4,6 +4,8 @@ import Models.Clients;
 import Models.Orders;
 import Models.Rooms;
 import utils.DBHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,12 +18,15 @@ import java.util.List;
 
 
 public class OrdersDao implements Dao<Orders, Long> {
+    private static final Logger logger = LoggerFactory.getLogger(OrdersDao.class);
+
     private final static String FIND_ALL = "SELECT * FROM orders ";
     private final static String SAVE = "INSERT INTO orders(order_number, client_id, pc_id, date_time_start, date_time_end, cost) " +
             "VALUES (?, ?, ?, ?, ?, ?)";
     private final static String SEARCH = "SELECT * FROM orders o JOIN clients c ON o.client_id = c.clients_id WHERE o.order_number ILIKE ?   OR c.surname ILIKE  ? OR c.name ILIKE ? OR c.patronymic ILIKE ? OR c.number_phone ILIKE ?";
 
     private static final String DELETE_BY_ID = "DELETE FROM orders WHERE order_id = ?";
+    private static final String UPDATE = "UPDATE orders SET order_number = ?, client_id = ?, pc_id = ?, date_time_start = ?, date_time_end = ?, cost = ? WHERE order_id = ?";
 
     @Override
     public Orders findById(Long aLong) throws Exception {
@@ -52,19 +57,20 @@ public class OrdersDao implements Dao<Orders, Long> {
                 list.add(new Orders(rs.getLong("order_id"),
                         rs.getTimestamp("date_time_start").toLocalDateTime(),
                         rs.getTimestamp("date_time_end").toLocalDateTime(),
-                        rs.getLong("client_id"),
                         rs.getLong("pc_id"),
+                        rs.getLong("client_id"),
                         rs.getDouble("cost"),
                         rs.getString("order_number")
                 ));
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.error("Ошибка SQL", e);
         }
         return list;
     }
     @Override
     public Orders save(Orders order) throws Exception {
+        logger.debug("SQL save: {}", SAVE);
         Connection connection = DBHelper.getConnection();
         PreparedStatement ps = connection.prepareStatement(SAVE, new String[]{"order_id"});
 
@@ -86,12 +92,24 @@ public class OrdersDao implements Dao<Orders, Long> {
     }
 
     @Override
-    public Orders update(Orders entity) throws Exception {
-        return null;
+    public Orders update(Orders order) throws Exception {
+        logger.debug("SQL update");
+        Connection connection = DBHelper.getConnection();
+        PreparedStatement ps = connection.prepareStatement(UPDATE);
+        ps.setString(1, order.getOrderNumber());
+        ps.setLong(2, order.getClientId());
+        ps.setLong(3, order.getPcId());
+        ps.setTimestamp(4, java.sql.Timestamp.valueOf(order.getDateTimeStart()));
+        ps.setTimestamp(5, java.sql.Timestamp.valueOf(order.getDateTimeEnd()));
+        ps.setDouble(6, order.getCost());
+        ps.setLong(7, order.getOrderId());
+        ps.executeUpdate();
+        return order;
     }
 
     @Override
     public void deleteById(long id) throws Exception {
+        logger.debug("SQL delete id={}", id);
         Connection connection = DBHelper.getConnection();
         PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID);
         statement.setLong(1, id);
@@ -123,7 +141,7 @@ public class OrdersDao implements Dao<Orders, Long> {
     }
 
     public int getTodayOrderCount() throws Exception {
-        // Считаем заказы, созданные сегодня (по дате начала)
+
         String sql = "SELECT COUNT(*) FROM orders WHERE DATE(date_time_start) = CURRENT_DATE";
         Connection connection = DBHelper.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql);

@@ -1,0 +1,11 @@
+.date-picker-popup > .month-year-pane > .spinner {
+    -fx-min-width: 120px;
+    -fx-pref-width: 120px;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .text-field {
+    -fx-pref-column-count: 4;
+    -fx-min-width: 70px;
+    -fx-pref-width: 70px;
+    -fx-alignment: center;
+}

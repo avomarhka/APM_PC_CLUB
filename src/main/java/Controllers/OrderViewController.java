@@ -14,10 +14,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import org.example.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import utils.DateFields;
+import utils.Texts;
 
 import java.awt.*;
 import java.time.LocalDate;
@@ -26,6 +36,8 @@ import java.util.Collection;
 
 
 public class OrderViewController {
+    private static final Logger logger = LoggerFactory.getLogger(OrderViewController.class);
+
     public TextField tfNumberPhone;
     public Button btnNumberChoice;
     public Button btnFioChoice;
@@ -36,7 +48,9 @@ public class OrderViewController {
     public DatePicker dtEnd;
     public TextField tfCost;
     public Spinner <Integer> spEnd;
+    public Spinner <Integer> spEndMin;
     public Spinner <Integer> spStart;
+    public Spinner <Integer> spStartMin;
     public Button btnSave;
 
     private Dao<Prices,Long> pricesDao;
@@ -57,6 +71,7 @@ public class OrderViewController {
 
     private Clients selectedClient;
     private Stage dialogStage;
+    private boolean timeAlertOpen;
 
     private ObservableList<Orders> orders =
           FXCollections.observableArrayList();
@@ -84,6 +99,8 @@ public class OrderViewController {
     @FXML
     void initialize() {
         try {
+            DateFields.setup(dtpStart);
+            DateFields.setup(dtEnd);
 
             Collection<Rooms> roomsList = roomDao.findAll();
             chbRoom.getItems().setAll(roomsList);
@@ -107,16 +124,25 @@ public class OrderViewController {
             chbRoom.setOnAction(event -> updatePcList());
 
             spStart.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 10));
+            spStartMin.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0));
             spEnd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 12));
+            spEndMin.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0));
+            setupTimeSpinner(spStart);
+            setupTimeSpinner(spStartMin);
+            setupTimeSpinner(spEnd);
+            setupTimeSpinner(spEndMin);
 
 
             dtpStart.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
             dtEnd.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
             spStart.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
+            spStartMin.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
             spEnd.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
+            spEndMin.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
             chbRoom.valueProperty().addListener((obs, oldV, newV) -> calculateCost());
 
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
@@ -140,18 +166,80 @@ public class OrderViewController {
                 public PC fromString(String string) { return null; }
             });
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
 
     public void onNumberChoice(ActionEvent actionEvent) {
-
+        logger.info("onNumberChoice");
+        openClientChoice();
     }
 
     public void onFioChoice(ActionEvent actionEvent) {
+        logger.info("onFioChoice");
+        openClientChoice();
+    }
 
+    private void openClientChoice() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Texts.bundle());
+            loader.setLocation(Main.class.getResource("/orderClientsView.fxml"));
+            Parent page = loader.load();
+
+            Stage choiceStage = new Stage();
+            choiceStage.setTitle(Texts.get("title.chooseClient"));
+            choiceStage.initModality(Modality.APPLICATION_MODAL);
+            choiceStage.initOwner(dialogStage != null ? dialogStage : Main.getPrimaryStage());
+            choiceStage.setScene(new Scene(page));
+
+            OrderClientsController controller = loader.getController();
+            controller.setDialogStage(choiceStage);
+            choiceStage.showAndWait();
+
+            Clients client = controller.getSelectedClient();
+            if (client != null) {
+                applyClient(client);
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка операции", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void applyClient(Clients client) {
+        selectedClient = client;
+        tfFio.setText(formatFio(client));
+        tfNumberPhone.setText(client.getNumberPhone() == null ? "" : client.getNumberPhone());
+    }
+
+    private String formatFio(Clients client) {
+        String surname = client.getSurname() == null ? "" : client.getSurname();
+        String name = client.getName() == null ? "" : client.getName();
+        String patronymic = client.getPatronymic() == null ? "" : client.getPatronymic();
+        return (surname + " " + name + " " + patronymic).trim();
+    }
+
+    private Clients findTypedClient() throws Exception {
+        String phone = tfNumberPhone.getText() == null ? "" : tfNumberPhone.getText().trim();
+        if (!phone.isEmpty()) {
+            Collection<Clients> found = ((ClientsDao) clientDao).searchByPhone(phone);
+            if (found.size() == 1) {
+                return found.iterator().next();
+            }
+        }
+        String fio = tfFio.getText() == null ? "" : tfFio.getText().trim();
+        if (!fio.isEmpty()) {
+            Collection<Clients> found = clientDao.search(fio);
+            if (found.size() == 1) {
+                return found.iterator().next();
+            }
+        }
+        return null;
     }
     public void onTfNumberPhone(ActionEvent actionEvent) {
+        logger.info("onTfNumberPhone");
         String phone = tfNumberPhone.getText().trim();
         if (phone.isEmpty()) return;
 
@@ -167,11 +255,13 @@ public class OrderViewController {
                 System.out.println("Найдено несколько клиентов, уточните запрос");
             }
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
 
     public void onTfFio(ActionEvent actionEvent) {
+        logger.info("onTfFio");
         String fio = tfFio.getText().trim();
         if (fio.isEmpty()) {
             System.out.println("Введите ФИО для поиска");
@@ -199,6 +289,7 @@ public class OrderViewController {
                 }
             }
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
     }
@@ -207,7 +298,7 @@ public class OrderViewController {
         LocalDate startDate = dtpStart.getValue();
         LocalDate endDate = dtEnd.getValue();
 
-        if (room == null || startDate == null || endDate == null || spStart.getValue() == null || spEnd.getValue() == null) {
+        if (room == null || startDate == null || endDate == null || !hasTime()) {
             tfCost.setText("0");
             return;
         }
@@ -217,25 +308,122 @@ public class OrderViewController {
             Prices tariff = findSuitableTariff(type.getId(), startDate, spStart.getValue());
 
             if (tariff == null) {
-                tfCost.setText("Нет тарифа");
+                tfCost.setText(Texts.get("status.noTariff"));
                 return;
             }
 
-            LocalDateTime start = startDate.atTime(spStart.getValue(), 0);
-            LocalDateTime end = endDate.atTime(spEnd.getValue(), 0);
-            long hours = java.time.Duration.between(start, end).toHours();
+            LocalDateTime start = toDateTime(startDate, spStart, spStartMin);
+            LocalDateTime end = toDateTime(endDate, spEnd, spEndMin);
+            if (start == null || end == null) {
+                tfCost.setText("0");
+                return;
+            }
+            long minutes = java.time.Duration.between(start, end).toMinutes();
 
-            if (hours <= 0) {
+            if (minutes <= 0) {
                 tfCost.setText("0");
                 return;
             }
 
-            double cost = hours * tariff.getPrice();
+            double cost = minutes / 60.0 * tariff.getPrice();
             tfCost.setText(String.format("%.2f", cost));
 
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
         }
+    }
+
+    private void setupTimeSpinner(Spinner<Integer> spinner) {
+        spinner.setEditable(true);
+        SpinnerValueFactory.IntegerSpinnerValueFactory factory =
+                (SpinnerValueFactory.IntegerSpinnerValueFactory) spinner.getValueFactory();
+        factory.setConverter(new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer value) {
+                return value == null ? "" : Integer.toString(value);
+            }
+
+            @Override
+            public Integer fromString(String text) {
+                return acceptTime(spinner, text);
+            }
+        });
+        spinner.getEditor().setOnAction(event -> commitTime(spinner));
+        spinner.getEditor().focusedProperty().addListener((obs, wasFocused, isFocused) -> {
+            if (!isFocused) {
+                commitTime(spinner);
+            }
+        });
+    }
+
+    private void commitTime(Spinner<Integer> spinner) {
+        Integer value = acceptTime(spinner, spinner.getEditor().getText());
+        if (value == null) {
+            return;
+        }
+        spinner.getValueFactory().setValue(value);
+        spinner.getEditor().setText(String.valueOf(value));
+    }
+
+    private Integer acceptTime(Spinner<Integer> spinner, String text) {
+        SpinnerValueFactory.IntegerSpinnerValueFactory factory =
+                (SpinnerValueFactory.IntegerSpinnerValueFactory) spinner.getValueFactory();
+        Integer current = spinner.getValue();
+        String raw = text == null ? "" : text.trim();
+        if (raw.isEmpty()) {
+            restoreTime(spinner, current);
+            return current;
+        }
+        try {
+            int value = Integer.parseInt(raw);
+            if (value < factory.getMin() || value > factory.getMax()) {
+                restoreTime(spinner, current);
+                showInvalidTime();
+                return current;
+            }
+            return value;
+        } catch (NumberFormatException e) {
+            restoreTime(spinner, current);
+            showInvalidTime();
+            return current;
+        }
+    }
+
+    private void restoreTime(Spinner<Integer> spinner, Integer current) {
+        spinner.getEditor().setText(current == null ? "" : String.valueOf(current));
+    }
+
+    private void showInvalidTime() {
+        if (timeAlertOpen) {
+            return;
+        }
+        timeAlertOpen = true;
+        try {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(Texts.get("alert.badTimeHeader"));
+            alert.setContentText(Texts.get("alert.badTimeBody"));
+            alert.showAndWait();
+        } finally {
+            timeAlertOpen = false;
+        }
+    }
+
+    private boolean hasTime() {
+        return spStart.getValue() != null && spStartMin.getValue() != null
+                && spEnd.getValue() != null && spEndMin.getValue() != null;
+    }
+
+    private LocalDateTime toDateTime(LocalDate date, Spinner<Integer> hours, Spinner<Integer> minutes) {
+        if (date == null || hours.getValue() == null || minutes.getValue() == null) {
+            return null;
+        }
+        int hour = hours.getValue();
+        int minute = minutes.getValue();
+        if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+            return null;
+        }
+        return date.atTime(hour, minute);
     }
 
     private Prices findSuitableTariff(long typeId, LocalDate date, int startHour) throws Exception {
@@ -251,30 +439,45 @@ public class OrderViewController {
     }
 
     public void onSave(ActionEvent actionEvent) {
+        logger.info("onSave");
         try {
+            commitTime(spStart);
+            commitTime(spStartMin);
+            commitTime(spEnd);
+            commitTime(spEndMin);
 
             Rooms selectedRoom = chbRoom.getValue();
             PC selectedPC = chbPC.getValue();
             LocalDate startDate = dtpStart.getValue();
             LocalDate endDate = dtEnd.getValue();
 
+            if (selectedClient == null) {
+                selectedClient = findTypedClient();
+                if (selectedClient != null) {
+                    applyClient(selectedClient);
+                }
+            }
             if (selectedRoom == null || selectedPC == null || selectedClient == null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Выберите комнату, ПК и клиента!");
+                Alert alert = new Alert(Alert.AlertType.WARNING, Texts.get("alert.pickRoom"));
                 alert.showAndWait();
                 return;
             }
-            if (startDate == null || endDate == null || spStart.getValue() == null || spEnd.getValue() == null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Укажите даты и время начала/окончания!");
+            if (startDate == null || endDate == null || !hasTime()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, Texts.get("alert.pickDate"));
                 alert.showAndWait();
                 return;
             }
 
 
-            LocalDateTime start = startDate.atTime(spStart.getValue(), 0);
-            LocalDateTime end = endDate.atTime(spEnd.getValue(), 0);
+            LocalDateTime start = toDateTime(startDate, spStart, spStartMin);
+            LocalDateTime end = toDateTime(endDate, spEnd, spEndMin);
+            if (start == null || end == null) {
+                new Alert(Alert.AlertType.WARNING, Texts.get("alert.badTimeHeader") + ". " + Texts.get("alert.badTimeBody")).showAndWait();
+                return;
+            }
 
             if (end.isBefore(start) || end.isEqual(start)) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Дата окончания должна быть позже даты начала!");
+                Alert alert = new Alert(Alert.AlertType.ERROR, Texts.get("alert.endAfterStart"));
                 alert.showAndWait();
                 return;
             }
@@ -282,9 +485,9 @@ public class OrderViewController {
 // --- НОВАЯ ПРОВЕРКА ---
             if (start.isBefore(LocalDateTime.now())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Ошибка даты");
-                alert.setHeaderText("Нельзя создать заказ в прошлом");
-                alert.setContentText("Выберите дату и время начала не раньше текущего момента.");
+                alert.setTitle(Texts.get("alert.pastTitle"));
+                alert.setHeaderText(Texts.get("alert.pastHeader"));
+                alert.setContentText(Texts.get("alert.pastBody"));
                 alert.showAndWait();
                 return;
             }
@@ -298,9 +501,9 @@ public class OrderViewController {
                     int age = java.time.Period.between(birthday, LocalDate.now()).getYears();
                     if (age < 18) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Ошибка возраста");
-                        alert.setHeaderText("Ночной тариф запрещен");
-                        alert.setContentText("Клиент не достиг 18 лет.");
+                        alert.setTitle(Texts.get("alert.ageTitle"));
+                        alert.setHeaderText(Texts.get("alert.nightForbidden"));
+                        alert.setContentText(Texts.get("alert.under18"));
                         alert.showAndWait();
                         return;
                     }
@@ -318,9 +521,9 @@ public class OrderViewController {
             // После проверки возраста и до сохранения:
             if (((OrdersDao) orderDao).isPcBusy(selectedPC.getPcId(), start, end)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("ПК занят");
-                alert.setHeaderText("Компьютер уже забронирован");
-                alert.setContentText("Выберите другое время или другой ПК.");
+                alert.setTitle(Texts.get("alert.pcBusyTitle"));
+                alert.setHeaderText(Texts.get("alert.pcBusyHeader"));
+                alert.setContentText(Texts.get("alert.pcBusyOrder"));
                 alert.showAndWait();
                 return;
             }
@@ -348,6 +551,7 @@ public class OrderViewController {
             }
 
         } catch (Exception e) {
+            logger.error("Ошибка операции", e);
             e.printStackTrace();
             // Alert alert = new Alert(Alert.AlertType.ERROR, "Ошибка сохранения: " + e.getMessage());
           // alert.showAndWait();

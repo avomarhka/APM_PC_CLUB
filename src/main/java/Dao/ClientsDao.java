@@ -3,6 +3,8 @@ package Dao;
 import Models.Clients;
 import Models.Prices;
 import utils.DBHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.sql.Connection;
@@ -16,6 +18,8 @@ import java.util.Date;
 import java.util.List;
 
 public class ClientsDao implements Dao<Clients, Long>{
+    private static final Logger logger = LoggerFactory.getLogger(ClientsDao.class);
+
     private final static String FIND_ALL = "SELECT * FROM clients";
     private final static String FIND_BY_ID = "SELECT * FROM clients WHERE clients_id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM clients WHERE clients_id = ?";
@@ -82,13 +86,14 @@ public class ClientsDao implements Dao<Clients, Long>{
                 ));
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.error("Ошибка SQL", e);
         }
         return list;
     }
 
     @Override
     public Clients save(Clients clients) throws Exception {
+        logger.debug("SQL save: {}", SAVE);
         Connection connection = DBHelper.getConnection();
         PreparedStatement statement = connection.prepareStatement(SAVE, new String[]{"clients_id"});
         statement.setString(1, clients.getSurname());
@@ -114,6 +119,7 @@ public class ClientsDao implements Dao<Clients, Long>{
 
     @Override
     public Clients update(Clients clients)throws Exception{
+        logger.debug("SQL update");
         Connection connection = DBHelper.getConnection();
         PreparedStatement statement = connection.prepareStatement(UPDATE);
 
@@ -138,12 +144,16 @@ public class ClientsDao implements Dao<Clients, Long>{
 
     @Override
     public void deleteById(long id) throws Exception {
+        logger.debug("SQL delete id={}", id);
         Connection connection = DBHelper.getConnection();
-        PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID);
-        statement.setLong(1, id);
-        statement.executeUpdate();
-
-
+        try (PreparedStatement orders = connection.prepareStatement("DELETE FROM orders WHERE client_id = ?")) {
+            orders.setLong(1, id);
+            orders.executeUpdate();
+        }
+        try (PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        }
     }
 
     @Override

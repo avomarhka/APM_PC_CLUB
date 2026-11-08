@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OrderViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OrderViewController">
    <children>
       <VBox AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -19,37 +19,37 @@
                <children>
                   <VBox>
                      <children>
-                        <Label layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="Комната">
+                        <Label layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="%column.room">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label maxWidth="1.7976931348623157E308" text="Компьютер">
+                        <Label maxWidth="1.7976931348623157E308" text="%column.pc">
                            <VBox.margin>
                               <Insets top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Телефон">
+                        <Label text="%column.phone">
                            <VBox.margin>
                               <Insets top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="ФИО ">
+                        <Label text="%column.fio">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
                         </Label>
-                        <Label maxWidth="1.7976931348623157E308" text="Начало">
+                        <Label maxWidth="1.7976931348623157E308" text="%column.start">
                            <VBox.margin>
                               <Insets top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label maxWidth="1.7976931348623157E308" text="Конец">
+                        <Label maxWidth="1.7976931348623157E308" text="%column.end">
                            <VBox.margin>
                               <Insets top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label maxWidth="1.7976931348623157E308" text="Стоимость">
+                        <Label maxWidth="1.7976931348623157E308" text="%label.cost">
                            <VBox.margin>
                               <Insets top="12.0" />
                            </VBox.margin>
@@ -71,12 +71,12 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </ChoiceBox>
-                        <TextField fx:id="tfNumberPhone" onAction="#onTfNumberPhone" promptText="Введите или выбирете">
+                        <TextField fx:id="tfNumberPhone" onAction="#onTfNumberPhone" promptText="%prompt.pick">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="tfFio" layoutX="10.0" layoutY="70.0" onAction="#onTfFio" promptText="Введите или выбирете">
+                        <TextField fx:id="tfFio" layoutX="10.0" layoutY="70.0" onAction="#onTfFio" promptText="%prompt.pick">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -100,22 +100,22 @@
                   </VBox>
                   <VBox>
                      <children>
-                        <Button fx:id="btnNumberChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNumberChoice" text="Выбрать">
+                        <Button fx:id="btnNumberChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNumberChoice" text="%button.select">
                            <VBox.margin>
                               <Insets top="60.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnFioChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFioChoice" text="Выбрать">
+                        <Button fx:id="btnFioChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFioChoice" text="%button.select">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Label text="Время начала">
+                        <Label text="%label.timeStart">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Время окончания">
+                        <Label text="%label.timeEnd">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -127,16 +127,28 @@
                   </VBox>
                   <VBox>
                      <children>
-                        <Spinner fx:id="spStart" maxWidth="1.7976931348623157E308">
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
                            <VBox.margin>
                               <Insets top="120.0" />
                            </VBox.margin>
-                        </Spinner>
-                        <Spinner fx:id="spEnd">
+                           <children>
+                              <Spinner fx:id="spStart" editable="true" prefWidth="72.0" />
+                              <Label text="%label.hours" />
+                              <Spinner fx:id="spStartMin" editable="true" prefWidth="72.0" />
+                              <Label text="%label.minutes" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
-                        </Spinner>
+                           <children>
+                              <Spinner fx:id="spEnd" editable="true" prefWidth="72.0" />
+                              <Label text="%label.hours" />
+                              <Spinner fx:id="spEndMin" editable="true" prefWidth="72.0" />
+                              <Label text="%label.minutes" />
+                           </children>
+                        </HBox>
                      </children>
                      <HBox.margin>
                         <Insets left="5.0" />
@@ -144,7 +156,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" text="Создать">
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" text="%button.create">
                <VBox.margin>
                   <Insets left="220.0" top="10.0" />
                </VBox.margin>

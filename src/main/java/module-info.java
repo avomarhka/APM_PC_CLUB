@@ -6,6 +6,8 @@ module APM  {
     requires java.sql;
     requires javafx.base;
     requires static lombok;
+    requires org.slf4j;
+    requires ch.qos.logback.classic;
 
 
     opens org.example to javafx.fxml;
@@ -16,6 +18,8 @@ module APM  {
     opens utils to javafx.fxml;
     exports Dao;
     opens Dao to javafx.fxml;
+    exports Models;
+    opens Models to javafx.fxml;
 
 
 }

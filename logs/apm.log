@@ -1,0 +1,22 @@
+2026-11-09 00:52:57 INFO  [JavaFX Application Thread] org.example.Main - Приложение запущено
+2026-11-09 00:53:04 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 00:53:04 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 00:53:04 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 00:53:04 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Пользователь appuser успешно вошел
+2026-11-09 00:53:04 INFO  [JavaFX Application Thread] org.example.Main - Главное окно открыто, пользователь Степанова Ольга
+2026-11-09 00:53:36 INFO  [JavaFX Application Thread] org.example.Main - Приложение запущено
+2026-11-09 00:53:49 DEBUG [JavaFX Application Thread] utils.DBHelper - Загружены настройки подключения (url, name)
+2026-11-09 00:53:49 INFO  [JavaFX Application Thread] utils.DBHelper - Подключение к jdbc:postgresql://localhost:5432/apmPC пользователем appuser
+2026-11-09 00:53:50 INFO  [JavaFX Application Thread] utils.DBHelper - Соединение установлено
+2026-11-09 00:53:50 INFO  [JavaFX Application Thread] Controllers.LoginDialog - Пользователь appuser успешно вошел
+2026-11-09 00:53:50 INFO  [JavaFX Application Thread] org.example.Main - Главное окно открыто, пользователь Степанова Ольга
+2026-11-09 00:53:59 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:02 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:04 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:04 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 00:54:06 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:06 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 00:54:07 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:07 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)
+2026-11-09 00:54:07 INFO  [JavaFX Application Thread] Controllers.MainController - onGuideAdd
+2026-11-09 00:54:07 DEBUG [JavaFX Application Thread] Dao.PCDao - SQL save: INSERT INTO pcs(room_id, number,available) VALUES (?,?, ?)

@@ -2,7 +2,6 @@ package Models;
 import javafx.beans.property.*;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 
 
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 
@@ -23,6 +21,9 @@ public class Orders {
     private final LongProperty clientId = new SimpleLongProperty(0L);
     private final StringProperty orderNumber = new SimpleStringProperty(" ");
 
+
+    public Orders() {
+    }
 
     public Orders(long orderId, LocalDateTime dateTimeStart, LocalDateTime dateTimeEnd, long pcId, long clientId, double cost, String orderNumber){
         this.orderId.set(orderId);

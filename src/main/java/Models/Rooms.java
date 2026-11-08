@@ -4,17 +4,18 @@ import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 public class Rooms {
     private final LongProperty roomId = new SimpleLongProperty(0L);
     private final LongProperty number = new SimpleLongProperty(0L);
     private final LongProperty typeId = new SimpleLongProperty(0L);
+
+    public Rooms() {
+    }
 
     public Rooms(long roomId, long number, long typeId){
         this.roomId.set(roomId);

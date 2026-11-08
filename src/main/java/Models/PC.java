@@ -5,11 +5,9 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleLongProperty;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 public class PC {
@@ -17,6 +15,9 @@ public class PC {
     private final LongProperty numberPC = new SimpleLongProperty(0L);
     private final BooleanProperty available = new SimpleBooleanProperty();
     private final LongProperty roomId = new SimpleLongProperty(0L);
+
+    public PC() {
+    }
 
     public PC(long pcId,long numberPC,boolean available, long roomId){
         this.pcId.set(pcId);
