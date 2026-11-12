@@ -1,6 +1,5 @@
-package Models;
+package Pojo;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

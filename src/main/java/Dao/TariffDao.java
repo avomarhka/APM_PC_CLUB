@@ -1,6 +1,6 @@
 package Dao;
 
-import Models.Prices;
+import Pojo.Prices;
 import utils.DBHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

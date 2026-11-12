@@ -1,9 +1,6 @@
 package Dao;
 
-import Models.PC;
-import Models.Prices;
-import Models.RoomTypes;
-import javafx.beans.property.LongProperty;
+import Pojo.PC;
 import utils.DBHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -7,9 +7,7 @@ import Dao.RoomsDao;
 import Dao.TariffDao;
 import Dao.RoomTypesDao;
 
-import Models.*;
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.SimpleStringProperty;
+import Pojo.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +27,6 @@ import org.slf4j.LoggerFactory;
 import utils.DateFields;
 import utils.Texts;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;

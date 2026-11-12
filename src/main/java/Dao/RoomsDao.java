@@ -1,8 +1,6 @@
 package Dao;
 
-import Models.Prices;
-import Models.RoomTypes;
-import Models.Rooms;
+import Pojo.Rooms;
 import utils.DBHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

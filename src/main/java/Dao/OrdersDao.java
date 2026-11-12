@@ -1,8 +1,6 @@
 package Dao;
 
-import Models.Clients;
-import Models.Orders;
-import Models.Rooms;
+import Pojo.Orders;
 import utils.DBHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

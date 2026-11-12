@@ -43,7 +43,6 @@ public class LoginDialog {
     private void changeLanguage() {
         String selected = cbLang.getValue();
 
-        // Определяем локаль
         Locale locale;
         if ("English".equals(selected)) {
             locale = new Locale("en", "EN");
@@ -104,10 +103,9 @@ public class LoginDialog {
                 String surname = rs.getString("surname");
                 String name = rs.getString("name");
 
-                    // Сохраняем ФИО в статическую переменную, чтобы главное окно её увидело
+
                 Main.currentUserName = surname + " " + name;
             } else {
-                    // Если пользователя с таким логином нет в таблице workers
                     Main.currentUserName = dbLogin;
             }
         } catch (Exception e) {

@@ -1,7 +1,6 @@
 package Dao;
 
-import Models.Clients;
-import Models.Prices;
+import Pojo.Clients;
 import utils.DBHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 public class ClientsDao implements Dao<Clients, Long>{

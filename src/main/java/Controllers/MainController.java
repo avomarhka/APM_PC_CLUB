@@ -8,11 +8,10 @@ import Dao.RoomsDao;
 import Dao.TariffDao;
 import Dao.RoomTypesDao;
 
-import Models.*;
+import Pojo.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
@@ -28,7 +27,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.example.Alerts;
 import org.example.Main;
 
 import utils.DBHelper;

@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 import Dao.Dao;
 import Dao.TariffDao;
 import Dao.RoomTypesDao;
-import Models.Prices;
+import Pojo.Prices;
 
-import Models.RoomTypes;
+import Pojo.RoomTypes;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

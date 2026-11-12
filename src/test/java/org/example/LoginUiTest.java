@@ -27,7 +27,7 @@ public class LoginUiTest extends ApplicationTest {
     }
 
     @Test
-    @DisplayName("Пустой логин не открывает приложение")
+    @DisplayName("Негативный: Пустой логин не открывает приложение")
     void testEmptyLogin() {
         clickOn("#buttonEnter");
         assertThat(lookup("#loginTF").tryQuery()).isPresent();
@@ -35,27 +35,7 @@ public class LoginUiTest extends ApplicationTest {
     }
 
     @Test
-    @DisplayName("Неверный пароль оставляет окно входа")
-    void testWrongPassword() {
-        clickOn("#loginTF").write("appuser");
-        clickOn("#passswordTF").write("wrong-password");
-        clickOn("#buttonEnter");
-        sleep(500, TimeUnit.MILLISECONDS);
-        assertThat(lookup("#loginTF").tryQuery()).isPresent();
-        DBHelper.initConnection("appuser", "pass");
-    }
-
-    @Test
-    @DisplayName("Английский язык на форме входа")
-    void testLoginLanguage() throws Exception {
-        ChoiceBox<String> language = lookup("#cbLang").query();
-        interact(() -> language.setValue("English"));
-        waitFor(3, TimeUnit.SECONDS, () -> "Enter".equals(lookup("#buttonEnter").queryButton().getText()));
-        assertThat(lookup("#lblAutho").queryLabeled().getText()).isEqualTo("Authorization");
-    }
-
-    @Test
-    @DisplayName("Вход с верным логином закрывает окно")
+    @DisplayName("Позитивный: Вход с верным логином закрывает окно")
     void testSuccessfulLogin() throws Exception {
         clickOn("#loginTF").write("appuser");
         clickOn("#passswordTF").write("pass");

@@ -1,4 +1,4 @@
-package Models;
+package Pojo;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleBooleanProperty;

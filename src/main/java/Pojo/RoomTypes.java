@@ -1,4 +1,4 @@
-package Models;
+package Pojo;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleIntegerProperty;

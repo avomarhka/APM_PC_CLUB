@@ -4,8 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import Dao.Dao;
 import Dao.ClientsDao;
-import Models.Clients;
-import Models.Rooms;
+import Pojo.Clients;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.example.Alerts;
 import utils.DateFields;
 import utils.Texts;
 

@@ -18,8 +18,8 @@ module APM  {
     opens utils to javafx.fxml;
     exports Dao;
     opens Dao to javafx.fxml;
-    exports Models;
-    opens Models to javafx.fxml;
+    exports Pojo;
+    opens Pojo to javafx.fxml;
 
 
 }

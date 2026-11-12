@@ -1,5 +1,4 @@
-package Models;
-import javafx.beans.property.DoubleProperty;
+package Pojo;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import lombok.Data;
